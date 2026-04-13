@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bloxd News Network</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- TV INTRO -->
+<div id="tvIntro" class="tv-intro">
+  <div class="intro-logo">BLOXD NEWS NETWORK</div>
+  <div class="intro-sub">LIVE • GLOBAL • 24/7 COVERAGE</div>
+</div>
+
+<!-- LOGIN -->
+<div id="loginScreen" class="login-screen">
+  <div class="login-box">
+    <h2>Admin Login</h2>
+    <input id="username" placeholder="Username">
+    <input id="password" type="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <p id="loginError"></p>
+  </div>
+</div>
+
+<!-- BREAKING POPUP -->
+<div id="breakingPopup" class="breaking-popup hidden">
+  <div class="popup-box">
+    <h2>🚨 BREAKING NEWS</h2>
+    <p id="popupText"></p>
+  </div>
+</div>
+
+<!-- MAIN SITE -->
+<div id="mainSite" class="hidden">
+
+  <header class="topbar">
+    <div class="logo">BLOXD NEWS NETWORK</div>
+    <button onclick="logout()">Logout</button>
+  </header>
+
+  <div class="breaking">🔴 LIVE NEWS SYSTEM ACTIVE</div>
+
+  <!-- COUNTDOWN -->
+  <div class="countdown-box">
+    <h3>⏰ Next Live Broadcast Starts In</h3>
+    <div id="countdown">Loading...</div>
+  </div>
+
+  <!-- ANCHOR CAM -->
+  <section class="anchor-feed">
+
+    <div class="camera-header">
+      <div class="live-dot">🔴 LIVE</div>
+      <div class="camera-title">ANCHOR CAM 01</div>
+      <div id="clock" class="clock"></div>
+    </div>
+
+    <div class="camera-screen">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+
+      <div class="camera-overlay">
+        <div class="rec">● REC</div>
+        <div class="signal">SIGNAL: STABLE</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- BROADCAST -->
+  <section class="broadcast-section">
+
+    <div class="broadcast-header">🔴 LIVE BROADCAST CENTER</div>
+
+    <div class="broadcast-grid">
+
+      <div class="main-video">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+        <div class="video-caption">Live News Coverage</div>
+      </div>
+
+      <div class="side-clips">
+        <div class="clip"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe><p>Update 1</p></div>
+        <div class="clip"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe><p>Update 2</p></div>
+        <div class="clip"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe><p>Update 3</p></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ADMIN PANEL -->
+  <section class="admin-panel">
+    <h2>Create News Post</h2>
+    <input id="title" placeholder="Headline">
+    <textarea id="content" placeholder="News content..."></textarea>
+
+    <input id="breakingText" placeholder="Breaking news text">
+    <button onclick="triggerBreaking()">Trigger Breaking</button>
+
+    <button onclick="addPost()">Publish Post</button>
+  </section>
+
+  <!-- NEWS FEED -->
+  <section id="newsGrid" class="news-grid"></section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
