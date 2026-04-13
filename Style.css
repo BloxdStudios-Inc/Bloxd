@@ -1,0 +1,255 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #0f0f0f;
+  color: white;
+}
+
+/* LOGIN */
+.login-screen {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+}
+
+.login-box {
+  background: #1c1c1c;
+  padding: 20px;
+  border: 2px solid red;
+  width: 260px;
+}
+
+.login-box input {
+  width: 100%;
+  margin: 5px 0;
+  padding: 8px;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 10px;
+  background: red;
+  color: white;
+  border: none;
+}
+
+/* GENERAL */
+.hidden { display: none; }
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background: #111;
+  border-bottom: 2px solid red;
+}
+
+.logo {
+  color: red;
+  font-weight: bold;
+}
+
+.breaking {
+  background: red;
+  padding: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* COUNTDOWN */
+.countdown-box {
+  margin: 10px;
+  padding: 10px;
+  background: #1a1a1a;
+  border-left: 4px solid red;
+  text-align: center;
+}
+
+#countdown {
+  font-size: 22px;
+  color: red;
+  font-weight: bold;
+}
+
+/* BROADCAST */
+.broadcast-section {
+  margin: 10px;
+  background: #111;
+  border: 2px solid red;
+}
+
+.broadcast-header {
+  background: red;
+  text-align: center;
+  padding: 8px;
+}
+
+.broadcast-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 10px;
+  padding: 10px;
+}
+
+.main-video iframe {
+  width: 100%;
+  height: 250px;
+}
+
+.video-caption {
+  background: #1c1c1c;
+  padding: 5px;
+}
+
+.side-clips {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.clip {
+  background: #1c1c1c;
+  padding: 5px;
+}
+
+.clip iframe {
+  width: 100%;
+  height: 80px;
+}
+
+/* POSTS */
+.admin-panel {
+  margin: 10px;
+  padding: 10px;
+  background: #1a1a1a;
+}
+
+.admin-panel input,
+.admin-panel textarea {
+  width: 100%;
+  margin: 5px 0;
+  padding: 8px;
+  background: #111;
+  color: white;
+  border: 1px solid #333;
+}
+
+.admin-panel button {
+  padding: 10px;
+  background: red;
+  border: none;
+  color: white;
+}
+
+/* NEWS */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  padding: 10px;
+}
+
+.card {
+  background: #1c1c1c;
+  padding: 10px;
+  border-left: 3px solid red;
+}
+
+/* BREAKING POPUP */
+.breaking-popup {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: red;
+  padding: 20px;
+  z-index: 9999;
+}
+
+/* TV INTRO */
+.tv-intro {
+  position: fixed;
+  inset: 0;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  animation: fadeOut 1s ease 5s forwards;
+}
+
+.intro-logo {
+  font-size: 40px;
+  color: red;
+  font-weight: bold;
+  animation: zoomIn 1.5s ease;
+}
+
+.intro-sub {
+  margin-top: 10px;
+  opacity: 0;
+  animation: fadeIn 1s ease 1.5s forwards;
+}
+
+/* ANCHOR CAM */
+.anchor-feed {
+  margin: 10px;
+  background: #0b0b0b;
+  border: 2px solid red;
+}
+
+.camera-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  background: #111;
+  font-size: 12px;
+}
+
+.live-dot {
+  color: red;
+  animation: blink 1s infinite;
+}
+
+.camera-screen iframe {
+  width: 100%;
+  height: 260px;
+}
+
+.camera-overlay {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  font-size: 12px;
+}
+
+.rec {
+  color: red;
+  animation: blink 1s infinite;
+}
+
+.signal {
+  color: lime;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.2); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
