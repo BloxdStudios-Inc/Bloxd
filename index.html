@@ -2,110 +2,173 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Bloxd News Network</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BloxdGroups</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<!-- TV INTRO -->
-<div id="tvIntro" class="tv-intro">
-  <div class="intro-logo">BLOXD NEWS NETWORK</div>
-  <div class="intro-sub">LIVE • GLOBAL • 24/7 COVERAGE</div>
-</div>
-
-<!-- LOGIN -->
-<div id="loginScreen" class="login-screen">
-  <div class="login-box">
-    <h2>Admin Login</h2>
-    <input id="username" placeholder="Username">
-    <input id="password" type="password" placeholder="Password">
-    <button onclick="login()">Login</button>
-    <p id="loginError"></p>
-  </div>
-</div>
-
-<!-- BREAKING POPUP -->
-<div id="breakingPopup" class="breaking-popup hidden">
-  <div class="popup-box">
-    <h2>🚨 BREAKING NEWS</h2>
-    <p id="popupText"></p>
-  </div>
-</div>
-
-<!-- MAIN SITE -->
-<div id="mainSite" class="hidden">
-
   <header class="topbar">
-    <div class="logo">BLOXD NEWS NETWORK</div>
-    <button onclick="logout()">Logout</button>
+    <div>
+      <h1>BloxdGroups</h1>
+      <p class="subtitle">Create and manage Bloxd.io groups & organizations.</p>
+    </div>
+    <div class="pill">Data saves in your browser (localStorage)</div>
   </header>
 
-  <div class="breaking">🔴 LIVE NEWS SYSTEM ACTIVE</div>
+  <main class="layout">
+    <aside class="panel">
+      <h2>Create Group / Organization</h2>
+      <form id="createForm" class="stack">
+        <label>
+          Type
+          <select id="groupType" required>
+            <option value="group">Group (free)</option>
+            <option value="organization">Organization (admin-only)</option>
+          </select>
+        </label>
+        <label>
+          Name (must be unique)
+          <input id="groupName" maxlength="40" placeholder="Example: SkyWars Masters" required>
+        </label>
+        <label>
+          Owner Display Name
+          <input id="ownerName" maxlength="30" placeholder="Example: Alex" required>
+        </label>
+        <label>
+          Description
+          <textarea id="groupDescription" rows="4" maxlength="500" placeholder="Tell people what this is about..." required></textarea>
+        </label>
+        <label>
+          Visibility
+          <select id="groupVisibility">
+            <option value="public">Public</option>
+            <option value="invite">Invite Only</option>
+          </select>
+        </label>
+        <label>
+          Owner Access Code
+          <input id="ownerCode" placeholder="Code provided by site owner" required>
+        </label>
+        <button type="submit" class="btn primary">Create</button>
+        <p id="createMsg" class="msg"></p>
+      </form>
 
-  <!-- COUNTDOWN -->
-  <div class="countdown-box">
-    <h3>⏰ Next Live Broadcast Starts In</h3>
-    <div id="countdown">Loading...</div>
-  </div>
+      <details>
+        <summary>Site Owner Code List Management</summary>
+        <div class="stack compact">
+          <label>
+            Site Owner Password
+            <input id="siteOwnerPassword" type="password" placeholder="Only website owner knows this">
+          </label>
+          <button id="unlockOwnerPanel" class="btn">Unlock</button>
+          <div id="ownerPanel" class="hidden">
+            <label>
+              New Code
+              <input id="newCodeValue" placeholder="Example: HUB-AX9QK">
+            </label>
+            <label>
+              Code Type
+              <select id="newCodeType">
+                <option value="group">Group Owner Code</option>
+                <option value="organization">Organization Admin Code</option>
+              </select>
+            </label>
+            <button id="addCodeBtn" class="btn">Add Code</button>
+            <ul id="codeList"></ul>
+          </div>
+          <p id="ownerMsg" class="msg"></p>
+        </div>
+      </details>
+    </aside>
 
-  <!-- ANCHOR CAM -->
-  <section class="anchor-feed">
+    <section class="panel">
+      <h2>Directory</h2>
+      <div id="directory" class="directory"></div>
+    </section>
 
-    <div class="camera-header">
-      <div class="live-dot">🔴 LIVE</div>
-      <div class="camera-title">ANCHOR CAM 01</div>
-      <div id="clock" class="clock"></div>
-    </div>
+    <section class="panel detail">
+      <div id="emptyState" class="empty">Select a group or organization to view details.</div>
+      <div id="detailView" class="hidden">
+        <div class="detail-header">
+          <div>
+            <h2 id="detailName"></h2>
+            <p id="detailMeta" class="meta"></p>
+          </div>
+          <div>
+            <button id="editBtn" class="btn hidden">Edit Group</button>
+          </div>
+        </div>
 
-    <div class="camera-screen">
-      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+        <div class="owner-login stack compact">
+          <label>
+            Owner Login (for editing)
+            <input id="ownerLoginCode" placeholder="Enter owner code">
+          </label>
+          <button id="ownerLoginBtn" class="btn">Login as Owner</button>
+          <button id="ownerLogoutBtn" class="btn hidden">Logout Owner</button>
+          <p id="ownerLoginMsg" class="msg"></p>
+        </div>
 
-      <div class="camera-overlay">
-        <div class="rec">● REC</div>
-        <div class="signal">SIGNAL: STABLE</div>
+        <div class="tabs">
+          <button class="tab active" data-tab="info">Info</button>
+          <button class="tab" data-tab="members">Member List</button>
+          <button class="tab" data-tab="announcements">Announcements / Feed</button>
+        </div>
+
+        <article id="tab-info" class="tab-content"></article>
+        <article id="tab-members" class="tab-content hidden"></article>
+        <article id="tab-announcements" class="tab-content hidden"></article>
+
+        <section id="editorPanel" class="editor hidden">
+          <h3>Owner Controls</h3>
+          <div class="grid-2">
+            <label>
+              Edit Name
+              <input id="editName" maxlength="40">
+            </label>
+            <label>
+              Visibility
+              <select id="editVisibility">
+                <option value="public">Public</option>
+                <option value="invite">Invite Only</option>
+              </select>
+            </label>
+          </div>
+          <label>
+            Edit Description
+            <textarea id="editDescription" rows="3" maxlength="500"></textarea>
+          </label>
+          <button id="saveEditBtn" class="btn primary">Save Group Changes</button>
+
+          <h4>Role Management</h4>
+          <div class="grid-2">
+            <label>
+              Member Name
+              <input id="roleTarget" placeholder="Existing member name">
+            </label>
+            <label>
+              New Role
+              <select id="roleType">
+                <option value="member">Member</option>
+                <option value="moderator">Moderator</option>
+                <option value="admin">Admin</option>
+              </select>
+            </label>
+          </div>
+          <button id="assignRoleBtn" class="btn">Update Role</button>
+
+          <h4>Post Announcement</h4>
+          <label>
+            Post Text
+            <textarea id="announcementText" rows="3" maxlength="300" placeholder="Share updates with members..."></textarea>
+          </label>
+          <button id="postAnnouncementBtn" class="btn">Post</button>
+          <p id="editMsg" class="msg"></p>
+        </section>
       </div>
-    </div>
+    </section>
+  </main>
 
-  </section>
-
-  <!-- BROADCAST -->
-  <section class="broadcast-section">
-
-    <div class="broadcast-header">🔴 LIVE BROADCAST CENTER</div>
-
-    <div class="broadcast-grid">
-
-      <div class="main-video">
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        <div class="video-caption">Live News Coverage</div>
-      </div>
-
-      <div class="side-clips">
-        <div class="clip"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe><p>Update 1</p></div>
-        <div class="clip"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe><p>Update 2</p></div>
-        <div class="clip"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe><p>Update 3</p></div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ADMIN PANEL -->
-  <section class="admin-panel">
-    <h2>Create News Post</h2>
-    <input id="title" placeholder="Headline">
-    <textarea id="content" placeholder="News content..."></textarea>
-
-    <input id="breakingText" placeholder="Breaking news text">
-    <button onclick="triggerBreaking()">Trigger Breaking</button>
-
-    <button onclick="addPost()">Publish Post</button>
-  </section>
-
-  <!-- NEWS FEED -->
-  <section id="newsGrid" class="news-grid"></section>
-
-</div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
