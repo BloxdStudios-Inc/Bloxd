@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BloxdStudios Login</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="card">
+
+<h1>BloxdStudios Portal</h1>
+
+<h2>Login</h2>
+<input id="loginEmail" placeholder="Email">
+<input id="loginPass" placeholder="Password">
+<button class="btn" id="loginBtn">Login</button>
+
+<hr>
+
+<h2>Register</h2>
+<input id="regEmail" placeholder="Email">
+<input id="regPass" placeholder="Password">
+<input id="regUser" placeholder="Username">
+<button class="btn" id="regBtn">Create Account</button>
+
+</section>
+
+<script type="module">
+import {
+auth,
+createUserWithEmailAndPassword,
+signInWithEmailAndPassword,
+doc,
+setDoc
+} from "./firebase.js";
+
+// REGISTER
+document.getElementById("regBtn").onclick = async () => {
+let email = regEmail.value;
+let pass = regPass.value;
+let user = regUser.value;
+
+const cred = await createUserWithEmailAndPassword(auth, email, pass);
+
+await setDoc(doc(db, "users", cred.user.uid), {
+username: user,
+rank: "Member",
+email: email
+});
+
+alert("Account created!");
+};
+
+// LOGIN
+document.getElementById("loginBtn").onclick = async () => {
+await signInWithEmailAndPassword(auth, loginEmail.value, loginPass.value);
+alert("Logged in!");
+window.location.href="dashboard.html";
+};
+</script>
+
+</body>
+</html>
