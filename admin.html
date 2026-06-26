@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="card">
+<h1>Admin Panel</h1>
+<div id="apps"></div>
+</section>
+
+<script type="module">
+import {
+db,
+collection,
+getDocs,
+updateDoc,
+doc
+} from "./firebase.js";
+
+let appsDiv = document.getElementById("apps");
+
+// LOAD APPLICATIONS
+let query = await getDocs(collection(db,"applications"));
+
+query.forEach((app)=>{
+let data = app.data();
+
+let div = document.createElement("div");
+div.className="card";
+
+div.innerHTML=`
+<b>${data.role}</b><br>
+Discord: ${data.discord}<br>
+Status: ${data.status}<br>
+
+<button onclick="accept('${app.id}')">Accept</button>
+<button onclick="deny('${app.id}')">Deny</button>
+`;
+
+appsDiv.appendChild(div);
+});
+
+window.accept = async (id)=>{
+await updateDoc(doc(db,"applications",id),{
+status:"Accepted"
+});
+location.reload();
+}
+
+window.deny = async (id)=>{
+await updateDoc(doc(db,"applications",id),{
+status:"Denied"
+});
+location.reload();
+}
+</script>
+
+</body>
+</html>
