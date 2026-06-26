@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="card">
+<h1>Dashboard</h1>
+
+<div id="profile"></div>
+
+<h2>Apply to BloxdStudios</h2>
+
+<input id="discord" placeholder="Discord">
+<select id="role">
+<option>Builder</option>
+<option>Scripter</option>
+<option>UI Designer</option>
+<option>Tester</option>
+<option>Game Designer</option>
+</select>
+
+<textarea id="exp" placeholder="Experience"></textarea>
+
+<button class="btn" id="applyBtn">Submit</button>
+</section>
+
+<script type="module">
+import {
+auth,
+db,
+onAuthStateChanged,
+doc,
+getDoc,
+addDoc,
+collection
+} from "./firebase.js";
+
+// LOAD USER
+onAuthStateChanged(auth, async (user) => {
+if(!user) location.href="index.html";
+
+let snap = await getDoc(doc(db,"users",user.uid));
+
+profile.innerHTML = `
+<b>${snap.data().username}</b><br>
+Rank: ${snap.data().rank}
+`;
+});
+
+// APPLY
+applyBtn.onclick = async () => {
+let user = auth.currentUser;
+
+await addDoc(collection(db,"applications"), {
+uid: user.uid,
+discord: discord.value,
+role: role.value,
+exp: exp.value,
+status: "Pending"
+});
+
+alert("Application sent!");
+};
+</script>
+
+</body>
+</html>
