@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neon Rush — a BloxdHop speedrun map | BloxdStudios</title>
+<meta name="description" content="Build log: Neon Rush, a neon-lit BloxdHop parkour map with branching shortcuts.">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="../index.html" class="logo"><svg class="logo-mark" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><polygon points="30,4 54,17 30,30 6,17" fill="var(--grass)"/><polygon points="6,17 30,30 30,56 6,43" fill="var(--grass-dark)"/><polygon points="54,17 30,30 30,56 54,43" fill="var(--sky)"/></svg>BloxdStudios</a>
+    <nav class="nav-main">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html" class="active">Projects</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../about.html">About</a>
+    </nav>
+    <div class="topbar-right">
+      <div class="socials">
+        <a href="https://github.com/" aria-label="GitHub" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        </a>
+        <a href="https://discord.gg/" aria-label="Discord" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.63 1.612-1.438 1.612"/></svg>
+        </a>
+      </div>
+      <button class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="nav-toggle" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-menu">
+    <a href="../index.html">Home</a>
+    <a href="../projects.html">Projects</a>
+    <a href="../blog.html">Blog</a>
+    <a href="../about.html">About</a>
+  </nav>
+</header>
+
+<article>
+  <div class="wrap article-hero">
+    <span class="tag tag-maps">Map</span>
+    <h1>Neon Rush — a BloxdHop speedrun map</h1>
+    <p class="lead" style="color:var(--text-muted); font-size:1.1rem; max-width:60ch;">A neon-lit parkour course built for speed, with three branching shortcuts for players who know the map.</p>
+
+    <div class="article-meta">
+      <div><span>Role</span><strong>Map design &amp; scripting</strong></div>
+      <div><span>Mode</span><strong>BloxdHop, 1–16 players</strong></div>
+      <div><span>Timeline</span><strong>1 weekend, 2026</strong></div>
+      <div><span>Status</span><strong>Live in rotation</strong></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="article-cover" role="img" aria-label="Neon Rush map cover image placeholder"></div>
+
+    <div class="article-body">
+      <h2>The idea</h2>
+      <p>We wanted a BloxdHop map that rewarded players who came back to it — a course that's beatable on a first try but has real time to shave off once you know the shortcuts. Neon Rush started as a single tricky jump we kept testing on each other in a private world.</p>
+
+      <blockquote>A good speedrun map teaches its shortcuts through level design, not a sign that says "shortcut here."</blockquote>
+
+      <h2>What we built</h2>
+      <p>The main route is a straightforward hop-and-climb path anyone can finish. Around it, three optional branches shave off several seconds each but demand a harder jump or a blind leap of faith. Replace this paragraph with your own build narrative — what you tried, what changed, and why.</p>
+
+      <figure>
+        <div class="article-img-block" role="img" aria-label="Map screenshot placeholder"></div>
+        <figcaption>Fig. 1 — Replace with an actual in-game screenshot.</figcaption>
+      </figure>
+
+      <h3>Design decisions</h3>
+      <ul>
+        <li>Checkpoints every 15–20 seconds, so a missed jump costs time, not the whole run.</li>
+        <li>Shortcuts are visible but not obvious — you have to actually try the risky jump to find them.</li>
+        <li>Kept the block palette to four colors so the neon accents stay readable at speed.</li>
+      </ul>
+
+      <h2>Results</h2>
+      <p>Describe the outcome here — completion rates, best times, or player feedback from Discord. Keep this section honest; specific, modest results read better than vague superlatives.</p>
+    </div>
+  </div>
+
+  <div class="wrap article-nav">
+    <a href="#"><span class="dir">← Previous</span>Skyfall Arena — SkyWars map pack</a>
+    <a href="#"><span class="dir">Next →</span>AutoDoor — script pack</a>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap footer-inner">
+    <a href="../index.html" class="logo"><svg class="logo-mark" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><polygon points="30,4 54,17 30,30 6,17" fill="var(--grass)"/><polygon points="6,17 30,30 30,56 6,43" fill="var(--grass-dark)"/><polygon points="54,17 30,30 30,56 54,43" fill="var(--sky)"/></svg>BloxdStudios</a>
+    <p class="footer-note">© 2026 BloxdStudios · Fan-made content for the Bloxd.io community</p>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
