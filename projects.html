@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — SIGNAL</title>
+<meta name="description" content="Case studies and projects by SIGNAL studio.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="logo"><span class="dot"></span>SIGNAL</a>
+    <nav class="nav-main">
+      <a href="index.html">Home</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="topbar-right">
+      <div class="socials">
+        <a href="https://github.com/" aria-label="GitHub" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        </a>
+      </div>
+      <button class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="nav-toggle" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+
+<section class="section" style="padding-top:56px;">
+  <div class="wrap">
+    <p class="eyebrow">Case studies</p>
+    <h1 style="font-size:clamp(2rem,4vw,2.8rem); max-width:18ch; margin-bottom:32px;">Everything we've shipped, filed by kind.</h1>
+
+    <!-- To add a category: add a button here with a matching data-filter,
+         then give any project card the same value in data-category. -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="web">Web</button>
+      <button class="filter-btn" data-filter="mobile">Mobile</button>
+      <button class="filter-btn" data-filter="design">Design</button>
+      <button class="filter-btn" data-filter="experiment">Experiments</button>
+    </div>
+
+    <div class="grid">
+
+      <a class="card" data-category="web" href="projects/project-example.html">
+        <div class="card-cover" style="--c1:#6C4FF6; --c2:#FF6B5B;"></div>
+        <div class="card-body">
+          <span class="tag tag-web">Web</span>
+          <h3>Atlas — trip planning, reimagined</h3>
+          <p>A collaborative itinerary tool for groups who can never agree on a plan.</p>
+          <div class="card-meta"><span>2025 · Product</span><span class="card-link-arrow">Read →</span></div>
+        </div>
+      </a>
+
+      <a class="card" data-category="mobile" href="projects/project-example.html">
+        <div class="card-cover" style="--c1:#0FA98A; --c2:#6C4FF6;"></div>
+        <div class="card-body">
+          <span class="tag tag-mobile">Mobile</span>
+          <h3>Loop — a habit tracker with teeth</h3>
+          <p>Minimal daily tracking app that makes streak-breaking uncomfortable.</p>
+          <div class="card-meta"><span>2025 · App</span><span class="card-link-arrow">Read →</span></div>
+        </div>
+      </a>
+
+      <a class="card" data-category="experiment" href="projects/project-example.html">
+        <div class="card-cover" style="--c1:#E0A400; --c2:#FF6B5B;"></div>
+        <div class="card-body">
+          <span class="tag tag-experiment">Experiment</span>
+          <h3>Field Notes — generative type posters</h3>
+          <p>A weekend build that turns weather data into printable poster art.</p>
+          <div class="card-meta"><span>2024 · Lab</span><span class="card-link-arrow">Read →</span></div>
+        </div>
+      </a>
+
+      <a class="card" data-category="design" href="projects/project-example.html">
+        <div class="card-cover" style="--c1:#FF6B5B; --c2:#E0A400;"></div>
+        <div class="card-body">
+          <span class="tag tag-design">Design</span>
+          <h3>Kiln — a design system for ceramics studios</h3>
+          <p>Components, tokens and a brand voice for a niche e-commerce client.</p>
+          <div class="card-meta"><span>2024 · Systems</span><span class="card-link-arrow">Read →</span></div>
+        </div>
+      </a>
+
+      <a class="card" data-category="web" href="projects/project-example.html">
+        <div class="card-cover" style="--c1:#6C4FF6; --c2:#0FA98A;"></div>
+        <div class="card-body">
+          <span class="tag tag-web">Web</span>
+          <h3>Ferry — freight tracking dashboard</h3>
+          <p>Real-time shipment visibility for a mid-size logistics operator.</p>
+          <div class="card-meta"><span>2023 · Product</span><span class="card-link-arrow">Read →</span></div>
+        </div>
+      </a>
+
+      <a class="card" data-category="experiment" href="projects/project-example.html">
+        <div class="card-cover" style="--c1:#0FA98A; --c2:#E0A400;"></div>
+        <div class="card-body">
+          <span class="tag tag-experiment">Experiment</span>
+          <h3>Chorus — sound-reactive lighting rig</h3>
+          <p>An Arduino side quest that turned into a gallery installation.</p>
+          <div class="card-meta"><span>2023 · Lab</span><span class="card-link-arrow">Read →</span></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <a href="index.html" class="logo"><span class="dot"></span>SIGNAL</a>
+    <div class="socials">
+      <a href="https://github.com/" aria-label="GitHub" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+    </div>
+    <p class="footer-note">© 2026 SIGNAL Studio. Built with plain HTML, CSS &amp; JS.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
